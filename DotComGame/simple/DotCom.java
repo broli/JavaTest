@@ -1,13 +1,13 @@
 
 import java.util.Random;
+import java.lang.String;
 
 public class DotCom {
 	
 	private int[] DCpos;
-	private int hits;
+	private boolean[] hits = {false,false,false};
 
 	public void startDotCom () {
-		this.hits=0;
 		Random generator = new Random();
 		DCpos = new int[3];
 		DCpos[0] = generator.nextInt(6);
@@ -20,10 +20,11 @@ public class DotCom {
 		
 		boolean hit = false;
 
+
 		for ( int i=0; i < DCpos.length; i++ ) {
 			if ( this.DCpos[i] == Pos ) {
 				hit = true;
-				this.hits++;
+				this.hits[i]=true;
 				break;
 			}
 		}
@@ -32,11 +33,18 @@ public class DotCom {
 	}
 
 	public int getHits () {
-		return this.hits;
+		int total=0;
+		for (int i=0; i < hits.length; i++) {
+			if ( hits[i] == true ) {
+				total++;
+			}
+		}
+
+		return total;
 	}
 
 	public boolean isDead () {
-		if ( this.hits < 3 ) {
+		if ( this.getHits() < 3 ) {
 			return false;
 		} else {
 			return true;
