@@ -16,7 +16,7 @@ public class SinkaDotcom {
 		while (!DotCom1.isDead()) {
 			entrada = helper.getUserInput("Adivina: ");	
 			
-			resultado = DotCom1.checkHit(Integer.parseInt(entrada));
+			resultado = DotCom1.checkHit(entrada);
 			if (resultado) {
 				System.out.println("|X| Pego!!!");
 			} else {

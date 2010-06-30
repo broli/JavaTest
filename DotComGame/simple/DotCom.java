@@ -1,54 +1,55 @@
 
 import java.util.Random;
 import java.lang.String;
+import java.util.ArrayList;
 
 public class DotCom {
 	
-	private int[] DCpos;
-	private boolean[] hits = {false,false,false};
+//	private int[] DCpos;
+//	private boolean[] hits = {false,false,false};
+	private ArrayList<String> Body;
 
 	public void startDotCom () {
+		int Position;
 		Random generator = new Random();
-		DCpos = new int[3];
-		DCpos[0] = generator.nextInt(6);
-		DCpos[1] = DCpos[0]+1;
-		DCpos[2] = DCpos[1]+1;
+		
+		
+		Body = new ArrayList<String>();
+		Position = generator.nextInt(6);
+
+//		System.out.println("posicion inicial " + Position);
+
+		this.Body.add(String.valueOf(Position+0));
+		this.Body.add(String.valueOf(Position+1));
+		this.Body.add(String.valueOf(Position+2));
+		
+//		System.out.println(String.valueOf(Position));
+//		System.out.println(String.valueOf(Position+1));
+//		System.out.println(String.valueOf(Position+2));
+
+
+//		System.out.println("size " + this.Body.size() );
 
 	}
 
-	public boolean checkHit(int Pos) {
+	public boolean checkHit(String Pos) {
 		
 		boolean hit = false;
+		int index = Body.indexOf(Pos);
 
-
-		for ( int i=0; i < DCpos.length; i++ ) {
-			if ( this.DCpos[i] == Pos ) {
-				hit = true;
-				this.hits[i]=true;
-				break;
-			}
+		if ( index >= 0 ) {
+			Body.remove(index);
+			hit = true;
 		}
 
 		return hit;
 	}
 
 	public int getHits () {
-		int total=0;
-		for (int i=0; i < hits.length; i++) {
-			if ( hits[i] == true ) {
-				total++;
-			}
-		}
-
-		return total;
+		return this.Body.size();
 	}
 
 	public boolean isDead () {
-		if ( this.getHits() < 3 ) {
-			return false;
-		} else {
-			return true;
-		}
-		
+		return this.Body.isEmpty();	
 	}
 }
