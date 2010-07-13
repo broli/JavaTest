@@ -9,7 +9,7 @@ public class mydraw extends JPanel {
           public void paintComponent(Graphics g  ) {
 
 		GradientPaint gradient = new GradientPaint(70 ,70,Color.blue, 150,150, Color.orange);
-
+		Image  image = new ImageIcon("a.jpg").getImage();
 		Random generator = new Random();
 
 		int x1 = generator.nextInt(200)+1;
@@ -27,6 +27,8 @@ public class mydraw extends JPanel {
 
 	  	g.setColor(Color.yellow);
 		g2d.fill3DRect(10,10,100,100,true);
+
+		g.drawImage(image,300,300,this);
 
 		g2d.setPaint(gradient);
 		g2d.fillOval(x1,y1,x2,y2);

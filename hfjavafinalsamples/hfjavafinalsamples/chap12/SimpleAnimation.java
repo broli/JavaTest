@@ -1,4 +1,3 @@
-package chap12;
 import javax.swing.*;
 import java.awt.*;
 public class SimpleAnimation {
@@ -21,7 +20,7 @@ public class SimpleAnimation {
           drawPanel.repaint();
   
           try {
-            Thread.sleep(50);
+            Thread.sleep(1);
           } catch(Exception ex) { }
        }
     

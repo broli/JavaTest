@@ -1,4 +1,3 @@
-package chap12;
 import javax.sound.midi.*;
 import java.io.*;
 import javax.swing.*;
