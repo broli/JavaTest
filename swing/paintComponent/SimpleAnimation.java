@@ -9,18 +9,34 @@ public class SimpleAnimation {
    }
    public void go() {
        JFrame frame = new JFrame();
+       boolean sube=true;
+
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        MyDrawPanel drawPanel = new MyDrawPanel();       
+
        frame.getContentPane().add(drawPanel);
        frame.setSize(300,300);
        frame.setVisible(true);
-       for (int i = 0; i < 130; i++) {
-          x++;
-          y++;
+
+       while (true) {
           drawPanel.repaint();
-  
+	  if (sube) {
+	  	x++;
+		y++;
+  	  	if (x>150) {
+			sube=false;
+		}
+	  } else {
+	  	x--;
+		y--;
+		if (x < 10) {
+			sube=true;
+		}
+	  }
+ 	  
+
           try {
-            Thread.sleep(1);
+            Thread.sleep(0,1);
           } catch(Exception ex) { }
        }
     

@@ -1,4 +1,3 @@
-package chap13;
 // chapter 13
 
 import java.awt.*;
