@@ -28,6 +28,7 @@ class STDemo {
 		for (File line:langPackages){
 			System.out.println(line.getAbsolutePath());	
 			StringTokenizer st = new StringTokenizer(line.getName(), "_.");
+			System.out.println("Cantidad de tokens\t"+st.countTokens());
 			while(st.hasMoreTokens()) {
 				String key = st.nextToken();
 				System.out.println("++"+key+"++");
